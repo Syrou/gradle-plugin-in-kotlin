@@ -1,0 +1,40 @@
+apply plugin: 'kotlin'
+apply plugin: 'maven'
+
+buildscript{
+    ext.kotlin_version = '1.1.0-dev-2053'
+    configure([repositories, project.repositories]) {
+        maven { url 'https://repo.gradle.org/gradle/repo' }
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+    repositories {
+        mavenCentral()
+    }
+}
+
+group='com.example'   //Group name makes easier to manager the packages.
+version='0.0.1-SNAPSHOT'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: uri('../repo'))
+        }
+    }
+}
+
+dependencies {
+    compile gradleApi()
+    compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.0-dev-2053"
+    compile "org.jetbrains.kotlin:kotlin-reflect:1.1.0-dev-2053"
+    testCompile 'junit:junit:4.12'
+}
+repositories {
+    mavenCentral()
+}
+sourceSets {
+    main.java.srcDirs += 'src/main/kotlin'
+}
