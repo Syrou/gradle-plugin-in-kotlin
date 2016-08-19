@@ -28,8 +28,8 @@ uploadArchives {
 
 dependencies {
     compile gradleApi()
-    compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.0-dev-2053"
-    compile "org.jetbrains.kotlin:kotlin-reflect:1.1.0-dev-2053"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompile 'junit:junit:4.12'
 }
 repositories {
